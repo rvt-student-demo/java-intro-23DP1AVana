@@ -1,31 +1,29 @@
 package lv.rvt;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.util.Scanner;
-// uzveudihan skaneri vienu reizi
 
-
-public class App 
+public class App
 {
-    public static void main( String[] args )
-    {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        System.out.println("Sveiks" + input);
+public static void main( String[] args ) {
+Scanner scanner = new Scanner(System.in); // Izveidojam skaneri vienu reizi, un pielietojam visā programmā
 
-        String name = scanner.nextLine();
+System.out.println("Ievadi savu vārdu:");
+String name = scanner.nextLine();
+System.out.println("Ievadiet savu uzvārdu:");
+String lastname = scanner.nextLine();
+System.out.println("Ievadiet savu grupu");
+String group = scanner.nextLine();
 
-        System.out.println();
-        String group = scanner.nextLine();
-        // Izvade viena rinda iznamotjot 3 mainigos
-        // Output example
-        System.out.println("sveiks"+ scanner);
-        
-    }
+// Izvade vienā rindiņā izmantojot 3 mainīgos
+// Output example: Students: <name> <surname>, grupa: <group>
+
+// String concatenation
+System.out.println(name + " " + lastname + " " + "grupa: " + group);
+
 
 }
 
+}
 
 
 
