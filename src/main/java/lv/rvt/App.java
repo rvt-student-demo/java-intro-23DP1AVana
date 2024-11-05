@@ -2,7 +2,14 @@ package lv.rvt;
 
 public class App {
     public static void main(String[] args) {
-       Products products = new Products("Banana", 150.2,15);
-       products.printProducts();
+        DecreasingCounter counter = new DecreasingCounter(10);
+
+        counter.printValue();
+
+        counter.decrement();
+        counter.printValue();
+
+        counter.decrement();
+        counter.printValue();
     }
 }
