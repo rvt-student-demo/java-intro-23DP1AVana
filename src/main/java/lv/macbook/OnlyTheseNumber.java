@@ -1,0 +1,34 @@
+package lv.macbook;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class OnlyTheseNumber {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        while (true) {
+            int number = scanner.nextInt();
+            if (number == -1) {
+                break;
+            }
+            numbers.add(number);
+        }
+
+        System.out.print("From where? ");
+        int start = scanner.nextInt();
+        
+        System.out.print("To where? ");
+        int end = scanner.nextInt();
+
+        for (int i = start; i <= end; i++) {
+            System.out.println(numbers.get(i));
+        }
+
+        scanner.close();
+    }
+}
+
+
+
