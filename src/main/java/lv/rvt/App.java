@@ -1,26 +1,11 @@
 package lv.rvt;
-
-import lv.rvt.kopsbro.PaymentCard;
-
-public class App {
+public class App{
     public static void main(String[] args) {
-        PaymentCard card = new PaymentCard(50);
-        System.out.println(card);
-        card.eatHeartily();
-        card.eatAffordably();
-        System.out.println(card);
-        System.out.println(card);
-
-        card.addMoney(15);
-        System.out.println(card);
-
-        card.addMoney(10);
-        System.out.println(card);
-
-        card.addMoney(200);
-        System.out.println(card);
-        System.out.println("Paul: " + card);
-        card.addMoney(-15);
-        System.out.println("Paul: " + card);
-    }
-}
+        Product tapeMeasure = new Product("Tape measure");
+        Product plaster = new Product("Plaster", "home improvement section");
+        Product tyre = new Product("Tyre", 5);
+        
+        System.out.println(tapeMeasure);
+        System.out.println(plaster);
+        System.out.println(tyre);
+}}
