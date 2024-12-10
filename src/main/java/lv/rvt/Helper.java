@@ -1,32 +1,28 @@
-package lv.rvt;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-
-public class PersonManager {
-    public static ArrayList<Person> getPersonList() throws Exception {
-        ArrayList<Person> persons = new ArrayList<>();
-
-        BufferedReader reader = Helper.getReader("person.csv");
-        reader.readLine();
-
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(", ");
-
-            Person person1 = new Person(parts[0], Integer.valueOf(parts[1]), Double.valueOf(parts[2]), Double.valueOf(parts[3]));
-            persons.add(person1);
-        }
-
-        return persons;
-    }
-
-    public static void addPerson(Person person) throws Exception {
-        BufferedWriter writer = Helper.getWriter("person.csv", StandardOpenOption.APPEND);
-        writer.write(person.toCsvRow());
-        // writer.newLine();
-        writer.close();
-    }
+package lv.rvt; 
+ 
+import java.io.BufferedReader; 
+import java.io.BufferedWriter; 
+import java.io.FileNotFoundException; 
+import java.io.IOException; 
+import java.nio.file.Files; 
+import java.nio.file.Path; 
+import java.nio.file.Paths; 
+import java.nio.file.StandardOpenOption; 
+ 
+public class Helper { 
+    public static BufferedReader getReader(String filename) throws IOException { 
+        return Files.newBufferedReader(getFilePath(filename)); 
+    } 
+ 
+    public static BufferedWriter getWriter(String filename, StandardOpenOption option) throws IOException { 
+        return Files.newBufferedWriter(getFilePath(filename), option); 
+    } 
+ 
+    private static Path getFilePath(String filename) throws FileNotFoundException { 
+        Path filePath = Paths.get("data", filename); 
+        if (!Files.exists(filePath)) { 
+            throw new FileNotFoundException("File not found: " + filename); 
+        } 
+        return filePath; 
+    } 
 }
