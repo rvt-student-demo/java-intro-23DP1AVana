@@ -1,38 +1,24 @@
-package lv.rvt; 
- 
-import java.util.ArrayList; 
-import java.util.Scanner; 
- 
-public class App { 
-    public static void main(String[] args) throws Exception { 
-        Scanner scanner = new Scanner(System.in); 
-        ArrayList<Person> persons = new ArrayList<>(); 
- 
-        System.out.println("Hello! Please select a command:"); 
-        System.out.println("show - shows all users"); 
-        System.out.println("add - adds a new user"); 
-        System.out.println("exit - exits the program\n"); 
- 
-        String userCommand = scanner.nextLine(); 
- 
-        while (!userCommand.equals("exit")) { 
-            if (userCommand.equals("add")) { 
-                System.out.println("adds a user"); 
-            } else if (userCommand.equals("show")) { 
-                persons = PersonManager.getPersonList(); 
-                System.out.printf("%-20s%-6s%-10s%-10s%n", "Name", "Age", "Height", "Weight"); 
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"); 
-                for (Person person : persons) { 
-                    System.out.printf("%-20s%-10s%-10s%-10s%n", person.getName(), person.getAge(), person.getHeight(), person.getWeight()); 
-                } 
-            } else { 
-                System.out.println("Input a correct command"); 
-            } 
-     
-            System.out.println("\nPlease select a command:"); 
-            userCommand = scanner.nextLine(); 
-        } 
- 
-        scanner.close(); 
-    } 
+package lv.rvt;
+
+
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Apartment manhattanStudioApt = new Apartment(1, 16, 5500);
+        Apartment atlantaTwoBedroomApt = new Apartment(2, 38, 4200);
+        Apartment bangorThreeBedroomApt = new Apartment(3, 78, 2500);
+
+//        Part 1
+        System.out.println(manhattanStudioApt.largerThan(atlantaTwoBedroomApt));       // false
+        System.out.println(bangorThreeBedroomApt.largerThan(atlantaTwoBedroomApt));  // true
+
+//        Part 2
+
+        System.out.println(manhattanStudioApt.priceDifference(atlantaTwoBedroomApt));  //71600
+        System.out.println(bangorThreeBedroomApt.priceDifference(atlantaTwoBedroomApt));   //35400
+
+//        Part 3
+        System.out.println(manhattanStudioApt.moreExpensiveThan(atlantaTwoBedroomApt));  // false
+        System.out.println(bangorThreeBedroomApt.moreExpensiveThan(atlantaTwoBedroomApt)); // true
+    }
 }
